@@ -3,7 +3,8 @@ name: PR_unit_tests
 on:
   pull_request:
     branches:
-    - 'main'
+    - 'master'
+    - 'dev'
 
 jobs:
   build:
