@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-    Unit-test:
     name: Run unit tests on PR in main
     runs-on: ubuntu-20.04
 
