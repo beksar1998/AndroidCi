@@ -16,9 +16,9 @@ class ExampleUnitTest {
         println("OK Test")
     }
 
-    @Test
-    fun addition_isCorrect2() {
-        assertEquals(4,  0)
-        println("Error Test")
-    }
+//    @Test
+//    fun addition_isCorrect2() {
+//        assertEquals(4,  0)
+//        println("Error Test")
+//    }
 }
