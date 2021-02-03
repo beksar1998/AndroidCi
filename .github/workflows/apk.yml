@@ -30,6 +30,6 @@ jobs:
           path: app/build/outputs/apk/release/app-release-unsigned.apk
       - name: Upload AAB Bundle
         uses: actions/upload-artifact@v2
-          with:
+        with:
           name: app-release.aab
           path: app/build/outputs/bundle/release/app-release.aab
