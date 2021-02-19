@@ -20,7 +20,8 @@ android {
         release {
             def keystoreProperties = new Properties()
             def keystorePropsFile = file("keystore/keystore_config")
-
+            print("CCC")
+            print(keystorePropsFile)
             if (keystorePropsFile.exists()) {
                 print("AAA")
                 file("keystore/keystore_config").withInputStream { keystoreProperties.load(it) }
@@ -31,6 +32,7 @@ android {
             } else {
                 print("BBB")
                 storeFile file("androidci")
+                print(storeFile)
                 storePassword System.getenv('KEYSTORE_PASSWORD')
                 keyAlias System.getenv('RELEASE_SIGN_KEY_ALIAS')
                 keyPassword System.getenv('RELEASE_SIGN_KEY_PASSWORD')
