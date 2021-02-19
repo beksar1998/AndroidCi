@@ -22,7 +22,7 @@ android {
             def keystorePropsFile = file("keystore/androdici")
 
             if (keystorePropsFile.exists()) {
-                file("keystore/keystore_config").withInputStream { keystoreProperties.load(it) }
+                file("keystore/androdici").withInputStream { keystoreProperties.load(it) }
                 storeFile file("$keystoreProperties.storeFile")
                 storePassword "$keystoreProperties.storePassword"
                 keyAlias "$keystoreProperties.keyAlias"
