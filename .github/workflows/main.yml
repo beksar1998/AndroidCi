@@ -38,7 +38,6 @@ jobs:
         with:
           releaseDirectory: app/build/outputs/bundle/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          output:
           alias: ${{ secrets.RELEASE_SIGN_KEY_ALIAS }}
           keyStorePassword: ${{ secrets.RELEASE_SIGN_KEY_PASSWORD }}
           keyPassword: ${{ secrets.KEYSTORE_PASSWORD }}
