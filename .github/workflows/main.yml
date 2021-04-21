@@ -1,11 +1,9 @@
-name: CI
+name: Android Deploy
 on:
-#  push:
-#    branches: [ master ]
     pull_request:
       types: [closed]
       branches: [ dev, master ]
-#  workflow_dispatch:
+
 
 jobs:
   build_apk_aab:
