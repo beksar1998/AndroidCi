@@ -29,8 +29,8 @@ android {
 //                keyPassword "$keystoreProperties.keyPassword"
 //            }
 
-           if  (file('androidci').exists()) {
-                storeFile file('androidci')
+            if (file('keystore/androidci').exists()) {
+                storeFile file('keystore/androidci')
                 storePassword System.getenv('KEYSTORE_PASSWORD')
                 keyAlias System.getenv('RELEASE_SIGN_KEY_ALIAS')
                 keyPassword System.getenv('RELEASE_SIGN_KEY_PASSWORD')
