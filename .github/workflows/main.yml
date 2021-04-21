@@ -131,14 +131,10 @@ jobs:
 #        with:
 #          name: app-release.apk
 #          path: app/build/outputs/apk/release/app-release.apk
-      - name: GITHUB_RUN_ID
-        run: echo ${{ secrets.GITHUB_RUN_ID }}
+
       - name: GITHUB_RUN_NUMBER
         run: echo ${{ secrets.GITHUB_RUN_NUMBER }}
-      - name: GITHUB_JOB
-        run: echo ${{ secrets.GITHUB_JOB }}
-      - name: GITHUB_ACTION
-        run: echo ${{ secrets.GITHUB_ACTION }}
+
 #      - name: Upload AAB Bundle
 #        uses: actions/upload-artifact@v2
 #        with:
