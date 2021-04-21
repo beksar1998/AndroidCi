@@ -4,11 +4,11 @@ plugins {
 }
 
 ext {
-    versionCode = System.getenv('GITHUB_RUN_NUMBER')
-    if (versionCode == null){
-        versionCode = 0
+    versCode = System.getenv('GITHUB_RUN_NUMBER')
+    if (versCode == null){
+        versCode = 0
     }else {
-        versionCode = Integer.parseInt(versionCode) + 20
+        versCode = Integer.parseInt(versCode) + 20
     }
 }
 
@@ -20,7 +20,7 @@ android {
         applicationId "com.beksar.androidci"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode versionCode
+        versionCode versCode
         versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
