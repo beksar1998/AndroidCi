@@ -131,6 +131,10 @@ jobs:
 #        with:
 #          name: app-release.apk
 #          path: app/build/outputs/apk/release/app-release.apk
+      - name: Output Run ID
+        run: echo ${{ github.run_id }}
+      - name: Output Run Number
+        run: echo ${{ github.run_number }}
 
       - name: Upload AAB Bundle
         uses: actions/upload-artifact@v2
