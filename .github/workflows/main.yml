@@ -8,11 +8,10 @@ on:
 
 
 jobs:
+  runs-on: ubuntu-latest
   setting_env:
     name: Setting Env
-    runs-on: ubuntu-latest
     steps:
-
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
@@ -20,7 +19,6 @@ jobs:
   build_apk_aab:
     needs: [setting_env]
     name: Build release artifacts
-    runs-on: ubuntu-latest
     steps:
       - name: Run tests and build release artifacts
         run: |
