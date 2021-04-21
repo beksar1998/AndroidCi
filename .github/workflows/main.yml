@@ -132,22 +132,21 @@ jobs:
 #          name: app-release.apk
 #          path: app/build/outputs/apk/release/app-release.apk
 
-      - name: GITHUB_RUN_NUMBER
-        run: echo ${{ github.run_number }}
 
-#      - name: Upload AAB Bundle
-#        uses: actions/upload-artifact@v2
-#        with:
-#          name: app-release.aab
-#          path: app/build/outputs/bundle/release/app-release.aab
-#
-#      - name: Deploy market
-#        uses: r0adkll/upload-google-play@v1
-#        with:
-#          serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON }}
-#          packageName: com.beksar.androidci
-#          releaseFiles: app/build/outputs/bundle/release/*.aab
-#          track: internal
+
+      - name: Upload AAB Bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-release.aab
+          path: app/build/outputs/bundle/release/app-release.aab
+
+      - name: Deploy market
+        uses: r0adkll/upload-google-play@v1
+        with:
+          serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          packageName: com.beksar.androidci
+          releaseFiles: app/build/outputs/bundle/release/*.aab
+          track: internal
 #          inAppUpdatePriority: 2
 #          userFraction: 0.33
 #          whatsNewDirectory: distribution/whatsnew
