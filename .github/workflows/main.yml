@@ -113,12 +113,12 @@ jobs:
       - uses: actions/setup-java@v1
         with: {java-version: 1.8}
 
-#      - name: Checkout keystore repo
-#        uses: actions/checkout@v2
-#        with:
-#          repository: ${{ secrets.KEYSTORE_GIT_REPOSITORY }}
-#          token: ${{ secrets.KEYSTORE_ACCESS_TOKEN }}
-#          path:
+      - name: Checkout keystore repo
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ secrets.KEYSTORE_GIT_REPOSITORY }}
+          token: ${{ secrets.KEYSTORE_ACCESS_TOKEN }}
+          path:
 
       - name: Run tests and build release artifacts
         run: |
@@ -126,13 +126,22 @@ jobs:
           ./gradlew assembleRelease --stacktrace
           ./gradlew bundleRelease
 
+      - uses: Tlaster/android-sign@v1
+        name: Sign app APK
+        with:
+          releaseDirectory: |
+            app/build/outputs/apk/release
+            app/build/outputs/bundle/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          output: build/release/signed
+          alias: ${{ secrets.RELEASE_SIGN_KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.RELEASE_SIGN_KEY_PASSWORD }}
+          keyPassword: ${{ secrets.KEYSTORE_PASSWORD }}
 #      - name: Upload signed APK
 #        uses: actions/upload-artifact@v2
 #        with:
 #          name: app-release.apk
 #          path: app/build/outputs/apk/release/app-release.apk
-
-
 
       - name: Upload AAB Bundle
         uses: actions/upload-artifact@v2
@@ -151,14 +160,3 @@ jobs:
 #          userFraction: 0.33
 #          whatsNewDirectory: distribution/whatsnew
 #          mappingFile: app/build/outputs/mapping/release/mapping.txt
-#      - uses: Tlaster/android-sign@v1
-#        name: Sign app APK
-#        with:
-#          releaseDirectory: |
-#            app/build/outputs/apk/release
-#            app/build/outputs/bundle/release
-#          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-#          output: build/release/signed
-#          alias: ${{ secrets.ALIAS }}
-#          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-#          keyPassword: ${{ secrets.KEY_PASSWORD }}
