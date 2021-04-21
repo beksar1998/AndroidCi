@@ -10,6 +10,8 @@ ext {
     }else {
         versCode = Integer.parseInt(versCode) + 20
     }
+
+    versName = '1.0.' + versCode
 }
 
 android {
@@ -21,7 +23,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 30
         versionCode versCode
-        versionName "1.0.0"
+        versionName versName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
