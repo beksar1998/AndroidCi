@@ -31,7 +31,7 @@ android {
         applicationId "com.beksar.androidci"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode gitVersion.version
+        versionCode 65
         versionName "${versionMajor}.${gitVersion.version}.${gitVersion.localChanges}"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
