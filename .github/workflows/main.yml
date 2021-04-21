@@ -120,11 +120,11 @@ jobs:
 #          token: ${{ secrets.KEYSTORE_ACCESS_TOKEN }}
 #          path:
 
-#      - name: Run tests and build release artifacts
-#        run: |
-#          ./gradlew test
-#          ./gradlew assembleRelease --stacktrace
-#          ./gradlew bundleRelease
+      - name: Run tests and build release artifacts
+        run: |
+          ./gradlew test
+          ./gradlew assembleRelease --stacktrace
+          ./gradlew bundleRelease
 
 #      - name: Upload signed APK
 #        uses: actions/upload-artifact@v2
