@@ -6,7 +6,7 @@ plugins {
 ext {
     versCode = System.getenv('GITHUB_RUN_NUMBER')
     if (versCode == null){
-        versCode = 0
+        versCode = 1
     }else {
         versCode = Integer.parseInt(versCode) + 20
     }
@@ -27,21 +27,21 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    signingConfigs {
-        release {
-
+//    signingConfigs {
+//        release {
+//
 //            if (file('keystore/androidci').exists()) {
 //                storeFile file('keystore/androidci')
 //                storePassword System.getenv('KEYSTORE_PASSWORD')
 //                keyAlias System.getenv('RELEASE_SIGN_KEY_ALIAS')
 //                keyPassword System.getenv('RELEASE_SIGN_KEY_PASSWORD')
 //            }
-        }
-    }
+//        }
+//    }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+//            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
