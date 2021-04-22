@@ -41,7 +41,15 @@ class MainActivity : AppCompatActivity() {
                 .build()
             val moduleAssets = "ondemandonly"
             manager.startInstall(request)
-                .addOnCompleteListener { showMessage("Module $moduleAssets installed") }
+                .addOnCompleteListener {
+                    showMessage("Module $moduleAssets installed")
+                    val intent = Intent()
+                    intent.setClassName(
+                        BuildConfig.APPLICATION_ID,
+                        "com.example.ondemandonly.OnDemandActivity"
+                    )
+                    startActivity(intent)
+                }
                 .addOnSuccessListener { showMessage("Loading $moduleAssets") }
                 .addOnFailureListener { showMessage("Error Loading $moduleAssets") }
 //
@@ -69,12 +77,7 @@ class MainActivity : AppCompatActivity() {
 //                                showMessage("INSTALLING")
 //                            }
 //                        }
-////                        val intent = Intent()
-////                        intent.setClassName(
-////                            BuildConfig.APPLICATION_ID,
-////                            "com.example.ondemandonly.OnDemandActivity"
-////                        )
-////                        startActivity(intent)
+
 //                    }
 //                    showMessage(" Result ${it.result}")
 //                }
