@@ -1,4 +1,4 @@
-name: Android Deploy(Test)
+name: Android Deploy(Prod)
 on:
   push:
 #    branches: [ ci ]
@@ -9,7 +9,7 @@ on:
 
 jobs:
   deploy:
-    name: Android Deploy(Test)
+    name: Android Deploy(Prod)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
