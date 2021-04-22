@@ -46,9 +46,14 @@ class MainActivity : AppCompatActivity() {
                     .build()
                 SplitInstallManagerFactory.create(this).startInstall(request).addOnSuccessListener {
                     showMessage("Success$it")
-                    startActivity(intent)
                 }.addOnFailureListener {
                     showMessage("Failure" + it.message)
+                }.addOnCompleteListener {
+                    showMessage("Complete ${it.isComplete} Successful ${it.isSuccessful} ")
+                    if (it.isComplete && it.isSuccessful) {
+                        startActivity(intent)
+                    }
+                    showMessage(" Result ${it.result}")
                 }
 
 
