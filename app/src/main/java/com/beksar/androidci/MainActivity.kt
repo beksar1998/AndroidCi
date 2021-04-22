@@ -45,10 +45,10 @@ class MainActivity : AppCompatActivity() {
                     .addModule("ondemandonly")
                     .build()
                 SplitInstallManagerFactory.create(this).startInstall(request).addOnSuccessListener {
-                    showMessage(it.toString())
+                    showMessage("Success$it")
 //                    startActivity(intent)
                 }.addOnFailureListener {
-                    showMessage(it.message)
+                    showMessage("Failure" + it.message)
                 }
 
 
