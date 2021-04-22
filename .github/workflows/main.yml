@@ -18,7 +18,7 @@ jobs:
 
 
       - name: Branch
-        run: echo ${BRANCH_NAME}
+        run: echo steps.extract_branch.outputs.branch
 #      - name: Run tests
 #        run: ./gradlew test
 #
