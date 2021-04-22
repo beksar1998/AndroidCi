@@ -8,6 +8,7 @@ import com.beksar.androidci.databinding.ActivityMainBinding
 import com.google.android.play.core.splitinstall.SplitInstallManager
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
 import com.google.android.play.core.splitinstall.SplitInstallRequest
+import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,11 +32,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.onDemandOnly.setOnClickListener {
-            val intent = Intent()
-            intent.setClassName(
-                BuildConfig.APPLICATION_ID,
-                "com.example.ondemandonly.OnDemandActivity"
-            )
+
 
 
             if (SplitInstallManagerFactory.create(this).installedModules.contains("ondemandonly")) {
@@ -51,7 +48,23 @@ class MainActivity : AppCompatActivity() {
                 }.addOnCompleteListener {
                     showMessage("Complete ${it.isComplete} Successful ${it.isSuccessful} ")
                     if (it.isComplete && it.isSuccessful) {
-                        startActivity(intent)
+                        when(it.result){
+                            SplitInstallSessionStatus.INSTALLED -> {
+                              showMessage("INSTALLED")
+                            }
+                            SplitInstallSessionStatus.FAILED -> {
+                                showMessage("FAILED")
+                            }
+                            SplitInstallSessionStatus.INSTALLING -> {
+                                showMessage("INSTALLING")
+                            }
+                        }
+//                        val intent = Intent()
+//                        intent.setClassName(
+//                            BuildConfig.APPLICATION_ID,
+//                            "com.example.ondemandonly.OnDemandActivity"
+//                        )
+//                        startActivity(intent)
                     }
                     showMessage(" Result ${it.result}")
                 }
