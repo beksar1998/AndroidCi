@@ -34,6 +34,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.start.setOnClickListener {
+            val intent = Intent()
+
+            intent.setClassName(
+                BuildConfig.APPLICATION_ID,
+                "com.example.ondemandonly.OnDemandActivity"
+            )
+            startActivity(intent)
+        }
+
         binding.onDemandOnly.setOnClickListener {
 
             val request = SplitInstallRequest.newBuilder()
@@ -41,16 +51,7 @@ class MainActivity : AppCompatActivity() {
                 .build()
             val moduleAssets = "ondemandonly"
             manager.startInstall(request)
-                .addOnCompleteListener {
-                    showMessage("Module $moduleAssets installed")
-                    val intent = Intent()
-
-                    intent.setClassName(
-                        BuildConfig.APPLICATION_ID,
-                        "com.example.ondemandonly.OnDemandActivity"
-                    )
-                    startActivity(intent)
-                }
+                .addOnCompleteListener { showMessage("Module $moduleAssets installed") }
                 .addOnSuccessListener { showMessage("Loading $moduleAssets") }
                 .addOnFailureListener { showMessage("Error Loading $moduleAssets") }
 //
