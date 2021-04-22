@@ -47,9 +47,9 @@ class MainActivity : AppCompatActivity() {
         binding.onDemandOnly.setOnClickListener {
 
             val request = SplitInstallRequest.newBuilder()
-                .addModule("ondemandonly")
+                .addModule("ondemandonly2")
                 .build()
-            val moduleAssets = "ondemandonly"
+            val moduleAssets = "ondemandonly2"
             manager.startInstall(request)
                 .addOnCompleteListener { showMessage("Module $moduleAssets installed") }
                 .addOnSuccessListener { showMessage("Loading $moduleAssets") }

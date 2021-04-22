@@ -4,7 +4,6 @@
     package="com.example.ondemandonly">
 
     <dist:module
-        dist:onDemand="true"
         dist:instant="false"
         dist:title="@string/title_ondemandonly">
         <dist:delivery>
