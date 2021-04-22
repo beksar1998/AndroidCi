@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.version.text = BuildConfig.VERSION_NAME
+
         binding.installTime.setOnClickListener {
             val intent = Intent()
             intent.setClassName(
@@ -41,5 +43,6 @@ class MainActivity : AppCompatActivity() {
             );
             startActivity(intent)
         }
+
     }
 }
