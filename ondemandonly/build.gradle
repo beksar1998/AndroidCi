@@ -2,6 +2,7 @@ plugins {
     id 'com.android.dynamic-feature'
     id 'kotlin-android'
 }
+apply plugin: 'com.android.dynamic-feature'
 android {
     compileSdkVersion 30
 
@@ -15,7 +16,4 @@ android {
 
 dependencies {
     implementation project(":app")
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 }
