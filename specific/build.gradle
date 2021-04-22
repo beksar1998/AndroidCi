@@ -1,0 +1,21 @@
+plugins {
+    id 'com.android.dynamic-feature'
+    id 'kotlin-android'
+}
+android {
+    compileSdkVersion 30
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+
+    }
+}
+
+dependencies {
+    implementation project(":app")
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+}

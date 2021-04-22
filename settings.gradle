@@ -1,2 +1,5 @@
+include ':specific'
+include ':ondemandonly'
+include ':installtime'
 include ':app'
 rootProject.name = "AndroidCi"
