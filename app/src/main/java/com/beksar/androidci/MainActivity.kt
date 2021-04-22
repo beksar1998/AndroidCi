@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var manager: SplitInstallManager
-
+    val string = StringBuilder()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -47,13 +47,23 @@ class MainActivity : AppCompatActivity() {
         binding.onDemandOnly.setOnClickListener {
 
             val request = SplitInstallRequest.newBuilder()
-                .addModule("ondemandonly2")
+                .addModule("ondemandonly")
                 .build()
             val moduleAssets = "ondemandonly2"
+
             manager.startInstall(request)
-                .addOnCompleteListener { showMessage("Module $moduleAssets installed") }
-                .addOnSuccessListener { showMessage("Loading $moduleAssets") }
-                .addOnFailureListener { showMessage("Error Loading $moduleAssets") }
+                .addOnCompleteListener {
+                    string.append("\nModule")
+                    setText()
+                }
+                .addOnSuccessListener {
+                    string.append("\nLoading ")
+                    setText()
+                }
+                .addOnFailureListener {
+                    string.append("\nError ")
+                    setText()
+                }
 //
 //            if (SplitInstallManagerFactory.create(this).installedModules.contains("ondemandonly")) {
 //                startActivity(intent)
@@ -98,6 +108,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    private fun setText() {
+        binding.version.text = string
     }
 
 
