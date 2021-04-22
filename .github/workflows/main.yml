@@ -18,8 +18,7 @@ jobs:
 
 
       - name: Branch
-        with:
-          image: eng:${{ steps.extract_branch.outputs.branch }}
+        run: echo ${BRANCH_NAME}
 #      - name: Run tests
 #        run: ./gradlew test
 #
