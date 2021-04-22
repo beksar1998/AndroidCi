@@ -48,6 +48,10 @@ android {
         jvmTarget = '1.8'
     }
     dynamicFeatures = [':installtime', ':ondemandonly', ':specific']
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
