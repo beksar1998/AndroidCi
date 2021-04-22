@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.beksar.androidci.databinding.ActivityMainBinding
+import com.beksar.androidci.progress.DefaultProgressActivity
 import com.google.android.play.core.splitinstall.SplitInstallManager
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
 import com.google.android.play.core.splitinstall.SplitInstallRequest
@@ -46,24 +47,41 @@ class MainActivity : AppCompatActivity() {
 
         binding.onDemandOnly.setOnClickListener {
 
-            val request = SplitInstallRequest.newBuilder()
-                .addModule("ondemandonly")
-                .build()
-            val moduleAssets = "ondemandonly2"
-
-            manager.startInstall(request)
-                .addOnCompleteListener {
-                    setText("addOnCompleteListener")
-                }
-                .addOnSuccessListener {
-                    setText("addOnSuccessListener")
-                }
-                .addOnFailureListener {
-                    setText("addOnFailureListener")
-                    setText(it.message.toString())
-
-                }
+//            val request = SplitInstallRequest.newBuilder()
+//                .addModule("ondemandonly")
+//                .build()
+//            val moduleAssets = "ondemandonly2"
 //
+//            manager.startInstall(request)
+//                .addOnCompleteListener {
+//                    setText("addOnCompleteListener")
+//                }
+//                .addOnSuccessListener {
+//                    setText("addOnSuccessListener")
+//                }
+//                .addOnFailureListener {
+//                    setText("addOnFailureListener")
+//                    setText(it.message.toString())
+//
+//                }
+
+
+            val intent = Intent()
+            intent.setClassName(
+                BuildConfig.APPLICATION_ID,
+                "com.example.ondemandonly.OnDemandActivity"
+            )
+            if (SplitInstallManagerFactory.create(this).installedModules.contains("ondemandonly")) {
+                startActivity(intent)
+            } else {
+                val progressIntent = DefaultProgressActivity.getIntent(
+                    this,
+                    "ondemandonly",
+                    "com.example.ondemandonly.OnDemandActivity"
+                )
+                startActivity(progressIntent)
+            }
+
 //            if (SplitInstallManagerFactory.create(this).installedModules.contains("ondemandonly")) {
 //                startActivity(intent)
 //            } else {
