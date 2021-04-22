@@ -1,7 +1,5 @@
 name: Android Deploy(Test)
 on:
-#  push:
-#    branches: [ ci ]
   pull_request:
     types: [closed]
     branches: [ dev ]
