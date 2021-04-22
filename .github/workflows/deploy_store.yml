@@ -50,7 +50,7 @@ jobs:
           track: internal
 
       - name: Deploy Play Store(Production)
-        if: github.head_ref == 'refs/heads/master'
+        if: github.base_ref == 'refs/heads/master'
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON }}
