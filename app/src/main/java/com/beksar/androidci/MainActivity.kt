@@ -53,16 +53,15 @@ class MainActivity : AppCompatActivity() {
 
             manager.startInstall(request)
                 .addOnCompleteListener {
-                    string.append("\nModule")
-                    setText()
+                    setText("addOnCompleteListener")
                 }
                 .addOnSuccessListener {
-                    string.append("\nLoading ")
-                    setText()
+                    setText("addOnSuccessListener")
                 }
                 .addOnFailureListener {
-                    string.append("\nError ")
-                    setText()
+                    setText("addOnFailureListener")
+                    setText(it.message.toString())
+
                 }
 //
 //            if (SplitInstallManagerFactory.create(this).installedModules.contains("ondemandonly")) {
@@ -100,17 +99,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.specific.setOnClickListener {
-            val intent = Intent()
-            intent.setClassName(
-                BuildConfig.APPLICATION_ID,
-                "com.example.specific.SpecificActivity"
-            );
-            startActivity(intent)
+            try {
+                val intent = Intent()
+                intent.setClassName(
+                    BuildConfig.APPLICATION_ID,
+                    "com.example.specific.SpecificActivity"
+                );
+                startActivity(intent)
+            } catch (e: Exception) {
+                setText(e.message.toString())
+            }
+
         }
 
     }
 
-    private fun setText() {
+    private fun setText(text: String) {
+        string.append("\n" + text)
         binding.version.text = string
     }
 
