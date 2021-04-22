@@ -74,12 +74,17 @@ class MainActivity : AppCompatActivity() {
             if (SplitInstallManagerFactory.create(this).installedModules.contains("ondemandonly")) {
                 startActivity(intent)
             } else {
-                val progressIntent = DefaultProgressActivity.getIntent(
-                    this,
-                    "ondemandonly",
-                    "com.example.ondemandonly.OnDemandActivity"
-                )
-                startActivity(progressIntent)
+                try{
+                    val progressIntent = DefaultProgressActivity.getIntent(
+                        this,
+                        "ondemandonly",
+                        "com.example.ondemandonly.OnDemandActivity"
+                    )
+                    startActivity(progressIntent)
+                }catch (e:Exception){
+                    setText(e.message.toString())
+                }
+
             }
 
 //            if (SplitInstallManagerFactory.create(this).installedModules.contains("ondemandonly")) {
