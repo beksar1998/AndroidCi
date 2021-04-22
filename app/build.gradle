@@ -10,7 +10,7 @@ ext {
     if (versCode == null){
         versCode = 1
     }else {
-        versCode = Integer.parseInt(versCode) + 120
+        versCode = Integer.parseInt(versCode) + 130
     }
 
     versName = '1.0.' + versCode
