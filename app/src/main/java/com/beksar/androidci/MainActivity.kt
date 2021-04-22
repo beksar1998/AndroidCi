@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener {
                     showMessage("Module $moduleAssets installed")
                     val intent = Intent()
+
                     intent.setClassName(
                         BuildConfig.APPLICATION_ID,
                         "com.example.ondemandonly.OnDemandActivity"
