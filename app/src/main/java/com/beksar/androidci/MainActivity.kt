@@ -13,12 +13,15 @@ import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var manager: SplitInstallManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        manager = SplitInstallManagerFactory.create(this)
 
         binding.version.text = BuildConfig.VERSION_NAME
 
@@ -33,44 +36,51 @@ class MainActivity : AppCompatActivity() {
 
         binding.onDemandOnly.setOnClickListener {
 
+            val request = SplitInstallRequest.newBuilder()
+                .addModule("ondemandonly")
+                .build()
+            val moduleAssets = "ondemandonly"
+            manager.startInstall(request)
+                .addOnCompleteListener { showMessage("Module $moduleAssets installed") }
+                .addOnSuccessListener { showMessage("Loading $moduleAssets") }
+                .addOnFailureListener { showMessage("Error Loading $moduleAssets") }
+//
+//            if (SplitInstallManagerFactory.create(this).installedModules.contains("ondemandonly")) {
+//                startActivity(intent)
+//            } else {
+//                val request = SplitInstallRequest.newBuilder()
+//                    .addModule("ondemandonly")
+//                    .build()
+//                SplitInstallManagerFactory.create(this).startInstall(request).addOnSuccessListener {
+//                    showMessage("Success$it")
+//                }.addOnFailureListener {
+//                    showMessage("Failure" + it.message)
+//                }.addOnCompleteListener {
+//                    showMessage("Complete ${it.isComplete} Successful ${it.isSuccessful} ")
+//                    if (it.isComplete && it.isSuccessful) {
+//                        when(it.result){
+//                            SplitInstallSessionStatus.INSTALLED -> {
+//                              showMessage("INSTALLED")
+//                            }
+//                            SplitInstallSessionStatus.FAILED -> {
+//                                showMessage("FAILED")
+//                            }
+//                            SplitInstallSessionStatus.INSTALLING -> {
+//                                showMessage("INSTALLING")
+//                            }
+//                        }
+////                        val intent = Intent()
+////                        intent.setClassName(
+////                            BuildConfig.APPLICATION_ID,
+////                            "com.example.ondemandonly.OnDemandActivity"
+////                        )
+////                        startActivity(intent)
+//                    }
+//                    showMessage(" Result ${it.result}")
+//                }
 
 
-            if (SplitInstallManagerFactory.create(this).installedModules.contains("ondemandonly")) {
-                startActivity(intent)
-            } else {
-                val request = SplitInstallRequest.newBuilder()
-                    .addModule("ondemandonly")
-                    .build()
-                SplitInstallManagerFactory.create(this).startInstall(request).addOnSuccessListener {
-                    showMessage("Success$it")
-                }.addOnFailureListener {
-                    showMessage("Failure" + it.message)
-                }.addOnCompleteListener {
-                    showMessage("Complete ${it.isComplete} Successful ${it.isSuccessful} ")
-                    if (it.isComplete && it.isSuccessful) {
-                        when(it.result){
-                            SplitInstallSessionStatus.INSTALLED -> {
-                              showMessage("INSTALLED")
-                            }
-                            SplitInstallSessionStatus.FAILED -> {
-                                showMessage("FAILED")
-                            }
-                            SplitInstallSessionStatus.INSTALLING -> {
-                                showMessage("INSTALLING")
-                            }
-                        }
-//                        val intent = Intent()
-//                        intent.setClassName(
-//                            BuildConfig.APPLICATION_ID,
-//                            "com.example.ondemandonly.OnDemandActivity"
-//                        )
-//                        startActivity(intent)
-                    }
-                    showMessage(" Result ${it.result}")
-                }
-
-
-            }
+//            }
 //            startActivity(intent)
         }
 
@@ -84,6 +94,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 
     private fun showMessage(text: String?) {
         Toast.makeText(this, text ?: "", Toast.LENGTH_SHORT).show()
