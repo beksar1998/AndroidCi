@@ -19,6 +19,12 @@
             android:text="Install Time" />
 
         <Button
+            android:id="@+id/onDemandOnly2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OnDemand Only" />
+
+        <Button
             android:id="@+id/onDemandOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

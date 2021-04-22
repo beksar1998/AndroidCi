@@ -44,27 +44,26 @@ class MainActivity : AppCompatActivity() {
             )
             startActivity(intent)
         }
+        binding.onDemandOnly2.setOnClickListener {
+            val request = SplitInstallRequest.newBuilder()
+                .addModule("ondemandonly")
+                .build()
+            val moduleAssets = "ondemandonly2"
 
+            manager.startInstall(request)
+                .addOnCompleteListener {
+                    setText("addOnCompleteListener")
+                }
+                .addOnSuccessListener {
+                    setText("addOnSuccessListener")
+                }
+                .addOnFailureListener {
+                    setText("addOnFailureListener")
+                    setText(it.message.toString())
+
+                }
+        }
         binding.onDemandOnly.setOnClickListener {
-
-//            val request = SplitInstallRequest.newBuilder()
-//                .addModule("ondemandonly")
-//                .build()
-//            val moduleAssets = "ondemandonly2"
-//
-//            manager.startInstall(request)
-//                .addOnCompleteListener {
-//                    setText("addOnCompleteListener")
-//                }
-//                .addOnSuccessListener {
-//                    setText("addOnSuccessListener")
-//                }
-//                .addOnFailureListener {
-//                    setText("addOnFailureListener")
-//                    setText(it.message.toString())
-//
-//                }
-
 
             val intent = Intent()
             intent.setClassName(
