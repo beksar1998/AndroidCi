@@ -30,8 +30,10 @@ class DefaultProgressActivity : BaseSplitActivity(R.layout.activity_progress) {
         }
     }
 
+    private val log = StringBuilder()
     private lateinit var progressBar: ProgressBar
     private lateinit var progressTitle: TextView
+    private lateinit var logTV: TextView
     private lateinit var action: Button
     private lateinit var manager: SplitInstallManager
 
@@ -43,9 +45,11 @@ class DefaultProgressActivity : BaseSplitActivity(R.layout.activity_progress) {
             when (state.status()) {
                 SplitInstallSessionStatus.DOWNLOADING -> {
                     //  In order to see this, the application has to be uploaded to the Play Store.
+                    showLog("DOWNLOADING")
                     showProgress(state.bytesDownloaded(), state.totalBytesToDownload())
                 }
                 SplitInstallSessionStatus.REQUIRES_USER_CONFIRMATION -> {
+                    showLog("REQUIRES_USER_CONFIRMATION")
                     /*
                       This may occur when attempting to download a sufficiently large module.
                       In order to see this, the application has to be uploaded to the Play Store.
@@ -57,20 +61,40 @@ class DefaultProgressActivity : BaseSplitActivity(R.layout.activity_progress) {
                     )
                 }
                 SplitInstallSessionStatus.INSTALLED -> {
+                    showLog("INSTALLED")
                     action.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
                     progressTitle.text = "Модуль загружен"
                 }
-                SplitInstallSessionStatus.INSTALLING -> showProgress(
-                    state.bytesDownloaded(),
-                    state.totalBytesToDownload()
-                )
+                SplitInstallSessionStatus.INSTALLING -> {
+                    showLog("INSTALLING")
+                    showProgress(
+                        state.bytesDownloaded(),
+                        state.totalBytesToDownload()
+                    )
+                }
                 SplitInstallSessionStatus.FAILED -> {
+                    showLog("FAILED")
                     Toast.makeText(
                         this,
                         "Error: ${state.errorCode()} for module ${state.moduleNames()}",
                         Toast.LENGTH_LONG
                     ).show()
+                }
+                SplitInstallSessionStatus.CANCELED -> {
+                    showLog("CANCELED")
+                }
+                SplitInstallSessionStatus.CANCELING -> {
+                    showLog("CANCELING")
+                }
+                SplitInstallSessionStatus.DOWNLOADED -> {
+                    showLog("DOWNLOADED")
+                }
+                SplitInstallSessionStatus.PENDING -> {
+                    showLog("PENDING")
+                }
+                SplitInstallSessionStatus.UNKNOWN -> {
+                    showLog("UNKNOWN")
                 }
             }
         }
@@ -91,6 +115,7 @@ class DefaultProgressActivity : BaseSplitActivity(R.layout.activity_progress) {
         super.onCreate(savedInstanceState)
         progressBar = findViewById(R.id.installation_progress)
         action = findViewById(R.id.progress_action)
+        logTV = findViewById(R.id.log)
         progressTitle = findViewById(R.id.progress_title)
         className = intent.getStringExtra(CLASS_NAME).orEmpty()
         moduleName = intent.getStringExtra(MODULE_NAME).orEmpty()
@@ -108,6 +133,11 @@ class DefaultProgressActivity : BaseSplitActivity(R.layout.activity_progress) {
             startActivity(intent)
             finish()
         }
+    }
+
+    private fun showLog(text: String){
+        log.append(text)
+        logTV.text = log
     }
 
     override fun onResume() {
