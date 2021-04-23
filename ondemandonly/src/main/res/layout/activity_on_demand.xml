@@ -23,88 +23,12 @@
 
             <ImageView
                 android:scaleType="fitXY"
-                android:src="@drawable/image1"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image2"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image3"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
                 android:src="@drawable/image4"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"/>
 
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image5"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image6"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image7"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image8"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image9"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
 
 
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image10"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image11"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image12"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image13"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:src="@drawable/image14"
-                android:layout_width="match_parent"
-                android:layout_height="400dp"/>
 
         </LinearLayout>
 
