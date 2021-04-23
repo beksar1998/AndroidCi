@@ -49,8 +49,8 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-//    dynamicFeatures = [':installtime', ':ondemandonly', ':specific']
-    dynamicFeatures = [':ondemandonly']
+    dynamicFeatures = [':installtime', ':ondemandonly', ':specific']
+//    dynamicFeatures = [':ondemandonly']
 
     buildFeatures {
         viewBinding true
