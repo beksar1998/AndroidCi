@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
             val request = SplitInstallRequest.newBuilder()
                 .addModule("ondemandonly")
                 .build()
-            val moduleAssets = "ondemandonly2"
 
             manager.startInstall(request)
                 .addOnCompleteListener {
