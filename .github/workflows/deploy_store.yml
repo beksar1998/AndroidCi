@@ -42,19 +42,21 @@ jobs:
         env:
           BUILD_TOOLS_VERSION: "30.0.3"
 
-#      - name: Deploy Play Store(Test)
-#        uses: r0adkll/upload-google-play@v1
-#        with:
-#          serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON }}
-#          packageName: com.beksar.androidci
-#          releaseFiles: app/build/outputs/bundle/release/*.aab
-#          track: internal
-
-      - name: Deploy Play Store(Production)
-#        if: github.base_ref == 'refs/heads/master'
+      - name: Deploy Play Store(Test)
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: com.beksar.androidci
           releaseFiles: app/build/outputs/bundle/release/*.aab
-          track: production
+          inAppUpdatePriority: 2
+          status: completed
+          track: internal
+
+#      - name: Deploy Play Store(Production)
+##        if: github.base_ref == 'refs/heads/master'
+#        uses: r0adkll/upload-google-play@v1
+#        with:
+#          serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON }}
+#          packageName: com.beksar.androidci
+#          releaseFiles: app/build/outputs/bundle/release/*.aab
+#          track: production
