@@ -1,4 +1,4 @@
-name: Android Deploy
+name: Android Deploy Dev
 on:
   pull_request:
     types: [review_requested]
