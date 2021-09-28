@@ -6,7 +6,7 @@ plugins {
 }
 
 ext {
-    versCode = System.getenv('GITHUB_RUN_NUMBER')
+    versCode = System.getenv('PR_NUMBER')
     if (versCode == null){
         versCode = 1
     }else {
@@ -15,9 +15,13 @@ ext {
 
     versName = '1.0.' + versCode
 
-    print("***")
-    print(versName)
-    print("***")
+    println("***")
+    println(System.getenv('GITHUB_RUN_ID'))
+    println(System.getenv('GITHUB_RUN_NUMBER'))
+    println(System.getenv('GITHUB_JOB'))
+    println(System.getenv('GITHUB_ACTION'))
+    println(System.getenv('PR_NUMBER'))
+    println("***")
 }
 
 android {

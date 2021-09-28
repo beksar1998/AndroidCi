@@ -4,6 +4,9 @@ on:
     types: [closed]
     branches: [ dev ]
 
+env:
+  PR_NUMBER: ${{ github.event.pull_request.number }}
+
 jobs:
   deploy:
     name: Android Deploy Dev
