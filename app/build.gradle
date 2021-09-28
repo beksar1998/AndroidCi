@@ -16,7 +16,10 @@ ext {
     versName = '1.0.' + versCode
 
     print("***")
-    print(versName)
+    print(System.getenv('GITHUB_RUN_ID'))
+    print(System.getenv('GITHUB_RUN_NUMBER'))
+    print(System.getenv('GITHUB_JOB'))
+    print(System.getenv('GITHUB_ACTION'))
     print("***")
 }
 
