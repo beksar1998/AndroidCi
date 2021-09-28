@@ -15,12 +15,12 @@ ext {
 
     versName = '1.0.' + versCode
 
-    print("***")
-    print(System.getenv('GITHUB_RUN_ID'))
-    print(System.getenv('GITHUB_RUN_NUMBER'))
-    print(System.getenv('GITHUB_JOB'))
-    print(System.getenv('GITHUB_ACTION'))
-    print("***")
+    println("***")
+    println(System.getenv('GITHUB_RUN_ID'))
+    println(System.getenv('GITHUB_RUN_NUMBER'))
+    println(System.getenv('GITHUB_JOB'))
+    println(System.getenv('GITHUB_ACTION'))
+    println("***")
 }
 
 android {
