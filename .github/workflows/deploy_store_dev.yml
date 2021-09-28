@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: Android Deploy
+    name: Android Deploy Dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
