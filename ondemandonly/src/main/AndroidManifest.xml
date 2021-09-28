@@ -14,7 +14,7 @@
     </dist:module>
 
     <application>
-        <activity android:name=".OnDemandActivity"></activity>
+        <activity android:name=".OnDemandActivity"/>
     </application>
 
 </manifest>
