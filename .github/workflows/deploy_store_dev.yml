@@ -1,10 +1,10 @@
 name: Android Deploy
 on:
-  push:
-    branches: [ ci ]
+#  push:
+#    branches: [ ci ]
   pull_request:
     types: [closed]
-    branches: [ master, dev ]
+    branches: [ dev ]
 
 
 jobs:
