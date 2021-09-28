@@ -4,7 +4,6 @@ on:
     types: [closed]
     branches: [ dev ]
 
-
 jobs:
   deploy:
     name: Android Deploy Dev

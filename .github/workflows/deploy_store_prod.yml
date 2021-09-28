@@ -4,7 +4,6 @@ on:
     types: [closed]
     branches: [ master ]
 
-
 jobs:
   deploy:
     name: Android Deploy Prod
