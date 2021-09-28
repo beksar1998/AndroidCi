@@ -1,10 +1,10 @@
 name: Android Deploy
 on:
-  push:
-    branches: [ ci ]
+#  push:
+#    branches: [ ci ]
   pull_request:
     types: [closed]
-    branches: [ master, dev ]
+    branches: [ dev ]
 
 
 jobs:
@@ -48,10 +48,12 @@ jobs:
           serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON }}
           packageName: com.beksar.androidci
           releaseFiles: app/build/outputs/bundle/release/*.aab
+          inAppUpdatePriority: 2
+          status: completed
           track: internal
 
 #      - name: Deploy Play Store(Production)
-#        if: github.base_ref == 'refs/heads/master'
+##        if: github.base_ref == 'refs/heads/master'
 #        uses: r0adkll/upload-google-play@v1
 #        with:
 #          serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON }}
