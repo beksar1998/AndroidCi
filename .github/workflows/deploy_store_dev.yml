@@ -1,7 +1,7 @@
 name: Android Deploy
 on:
   pull_request:
-    types: [closed]
+    types: [review_requested]
     branches: [ dev ]
 
 jobs:
