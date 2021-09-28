@@ -14,6 +14,10 @@ ext {
     }
 
     versName = '1.0.' + versCode
+
+    print("***")
+    print(versName)
+    print("***")
 }
 
 android {
