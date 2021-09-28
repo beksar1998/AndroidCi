@@ -6,7 +6,7 @@ plugins {
 }
 
 ext {
-    versCode = System.getenv('GITHUB_RUN_NUMBER')
+    versCode = System.getenv('PR_NUMBER')
     if (versCode == null){
         versCode = 1
     }else {

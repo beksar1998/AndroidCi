@@ -1,7 +1,11 @@
-name: Android Deploy
+name: Android Deploy Check
+
 on:
   pull_request:
     types: [opened]
+
+env:
+  PR_NUMBER: ${{ github.event.pull_request.number }}
 
 jobs:
   deploy:
