@@ -7,6 +7,7 @@ plugins {
 
 ext {
     versCode = System.getenv('PR_NUMBER')
+
     if (versCode == null){
         versCode = 1
     }else {
