@@ -47,8 +47,13 @@ jobs:
         #if: github.base_ref == 'refs/heads/master'
         uses: r0adkll/upload-google-play@v1
         with:
-          serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON }}
+          serviceAccountJsonPlainText:  ${{ secrets.SERVICE_ACCOUNT_JSON2 }}
           packageName: com.beksar.androidci
           releaseFiles: app/build/outputs/bundle/release/*.aab
           status: completed
           track: production
+
+
+
+
+
