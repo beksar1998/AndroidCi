@@ -10,6 +10,7 @@ import com.google.android.play.core.splitinstall.SplitInstallManager
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory
 import com.google.android.play.core.splitinstall.SplitInstallRequest
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +26,13 @@ class MainActivity : AppCompatActivity() {
         manager = SplitInstallManagerFactory.create(this)
 
         binding.version.text = BuildConfig.VERSION_NAME
+
+
+        binding.crash.setOnClickListener {
+            FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
+            FirebaseCrashlytics.getInstance().recordException(RuntimeException("dis test 666"))
+            throw RuntimeException("dis test 666") // Force a crash
+        }
 
         binding.installTime.setOnClickListener {
             val intent = Intent()

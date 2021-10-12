@@ -12,6 +12,14 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+
+        <Button
+            android:id="@+id/crash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crash" />
+
+
         <Button
             android:id="@+id/installTime"
             android:layout_width="wrap_content"

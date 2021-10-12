@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "167411297673",
+    "project_id": "androidci-4613a",
+    "storage_bucket": "androidci-4613a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167411297673:android:e94fa0fe15df71b7550558",
+        "android_client_info": {
+          "package_name": "com.beksar.androidci"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "167411297673-urg3hp9u3okm4e0iibfc402ij3a488u4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADq17qo2VVfFKcw2Lg9w-hCD7dLpvMzFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "167411297673-urg3hp9u3okm4e0iibfc402ij3a488u4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
