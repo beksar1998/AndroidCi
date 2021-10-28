@@ -22,6 +22,10 @@ jobs:
       - name: Run assembleRelease
         run: ./gradlew assembleRelease --stacktrace
 
+
+      - name: Run assembleRelease222
+        run: ./gradlew assembleRelease --stacktrace
+
       - name: Run build release
         run: ./gradlew bundleRelease
 
