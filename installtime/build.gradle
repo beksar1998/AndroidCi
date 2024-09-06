@@ -3,12 +3,12 @@ plugins {
     id 'kotlin-android'
 }
 android {
-    compileSdkVersion 30
+    compileSdkVersion 34
 
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 30
+        targetSdkVersion 34
 
     }
     compileOptions {
